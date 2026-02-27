@@ -17,7 +17,7 @@ if fl is not None:
     df = pd.read_csv(filename)
 else:
 
-    df = pd.read_csv("Superstore.csv") 
+    df = pd.read_csv("Project/Superstore.csv") 
     
 col1, col2 = st.columns(2)  
 
