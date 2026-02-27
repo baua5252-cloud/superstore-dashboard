@@ -144,8 +144,8 @@ with st.expander("Summary_Table"):
     st.markdown("Monthly wise sub-Category Table")
     filtered_df["month"] = filtered_df["Order Date"].dt.month_name()
     sub_category_year = pd.pivot_table(data = filtered_df, values = "Sales", index = ["Sub-Category"],columns = "month")
-    st.write(sub_category_year.style.background_gradient(cmap="Blues"))
-    
+    st.dataframe(sub_category_year, use_container_width=True)
+    csv = sub_category_year.to_csv().encode("utf-8")
     
 #Creat a scatter plot
 data1 = px.scatter(filtered_df, x = "Sales", y = "Profit", size = "Quantity") 
