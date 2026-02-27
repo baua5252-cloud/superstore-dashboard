@@ -170,7 +170,7 @@ data1.update_layout(
 st.plotly_chart(data1, use_container_width=True)
 
 with st.expander("view data"):
-    st.write(filtered_df.iloc[:500,1:20:2].style.background_gradient(cmap = "Reds"))
+    st.dataframe(filtered_df.iloc[:500,1:20:2], use_container_width=True)
     
 #Download original dataset
 csv = df.to_csv(index = False).encode("utf-8")
