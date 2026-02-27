@@ -97,7 +97,7 @@ with col2:
 with cl2:
         with st.expander("Region_Viewdata"):
             region = filtered_df.groupby(by = ["Region"], as_index = False)["Sales"].sum()
-            st.write(region.style.background_gradient(cmap = "Oranges"))
+            st.dataframe(region, use_container_width=True)
             csv = region.to_csv(index = False).encode("utf-8")
             st.download_button("Download Data", data = csv, file_name = "Region.csv", mime = "text/csv",
                                help = 'click here to download the data as a CSV file')    
@@ -110,7 +110,7 @@ fig2 = px.line(linechart, x = "month_year", y="Sales", labels = {"Sales": "Amoun
 st.plotly_chart(fig2, use_container_width=True)    
 
 with st.expander("Time Series_Viewdata"):
-    st.write(linechart.T.style.background_gradient(cmap = "Reds"))
+    st.dataframe(linechart, use_container_width=True)
     csv = linechart.to_csv(index = False).encode("utf-8")
     st.download_button("Download Data", data = csv, file_name = "TimeSeries.csv", mime = "text/csv"),
     
